@@ -11,6 +11,7 @@ function App() {
     console.log("contact ", contact)
     setContacts([...contacts, contact])
   };
+  
 
   useEffect(() => {
     const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY ));
