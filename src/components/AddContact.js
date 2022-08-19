@@ -1,10 +1,12 @@
 import React from "react";
-
+import { Button } from "semantic-ui-react";
+import {addContactHandler} from '../App'
 class AddContact extends React.Component {
     state = {
         name: "",
         email: "",
     }
+    
     add = (e) => {
         e.preventDefault();
         if(this.state.name === "" && this.state.email===""){
@@ -13,15 +15,15 @@ class AddContact extends React.Component {
         }
         this.props.addContactHandler(this.state)
         this.setState({name: "",email: ""})
-        localStorage.setItem('contacts', JSON.stringify([{name:this.state.name,email:this.state.email}]));
-    }   
+    } 
+      
     render() {
         return (
-            <div className="ui main">
-                <h2>Add Contact</h2>
-                <form className="ui form" onSubmit={this.add}>
-                    <div className="field">
-                        <label>Name</label>
+            <div className="">
+                <h2 className="header2">Add Contact</h2>
+                <form className="" onSubmit={this.add}>
+                    <div className="">
+                        <label className="font-size">Name</label>
                         <input
                          type="text"
                          name="name"
@@ -29,8 +31,8 @@ class AddContact extends React.Component {
                          value={this.state.name}
                          onChange={(e)=> this.setState({name:e.target.value})} />
                     </div>
-                    <div className="field">
-                        <label>Email</label>
+                    <div className="">
+                        <label className="font-size">Email</label>
                         <input  
                           type="text"
                           name="email"
@@ -39,7 +41,7 @@ class AddContact extends React.Component {
                           onChange={(e)=> this.setState({email:e.target.value})}
                           />
                     </div>
-                    <button className="ui button blue">Add</button>
+                    <Button className="ui button blue space ">Add</Button>
                 </form>
             </div>
         )
